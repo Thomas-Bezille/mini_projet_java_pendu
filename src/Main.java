@@ -18,6 +18,20 @@ public class Main {
             System.out.println(game);
             System.out.println("Entrez une lettre :");
             final var letter = scanner.nextLine().charAt(0);
+
+            game.guessLetter(letter);
+
+            if (game.isLost()) {
+                System.out.println(game);
+                System.out.println("Perdu !");
+                break;
+            }
+
+            if (game.isWin()) {
+                System.out.println(game);
+                System.out.println("Gagné !");
+                break;
+            }
         }
     }
 }
