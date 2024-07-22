@@ -1,15 +1,23 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import com.dyma.game.GuessGame;
+
+import java.util.Random;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        final var scanner = new Scanner(System.in);
+        final var random = new Random();
+        final var words = "fleur voiture océan montagne livre soleil arbre chat téléphone maison".split(" ");
+        final var wordToGuess = words[random.nextInt(words.length)];
+        final var game = new GuessGame(wordToGuess, 10);
+
+        System.out.println("Le jeu débute !");
+
+        while (true) {
+            System.out.println(game);
+            System.out.println("Entrez une lettre :");
+            final var letter = scanner.nextLine().charAt(0);
         }
     }
 }
