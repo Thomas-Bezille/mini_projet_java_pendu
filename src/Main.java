@@ -3,7 +3,14 @@ import com.dyma.game.GuessGame;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Class of the entry point of the game
+ */
 public class Main {
+
+    /**
+     * Entry point of the Guess Game. Contains the main algorithm of the game.
+     */
     public static void main(String[] args) {
 
         final var random = new Random();
@@ -31,7 +38,7 @@ public class Main {
 
             if (game.isWin() || game.isLost()) {
                 var replayAnswer = scanLetter("Voulez-vous rejouer ? (O/N)");
-                if (replayAnswer == 'o' || replayAnswer == 'O') {
+                if (replayAnswer == 'o' || replayAnswer == 'O' || replayAnswer == 'y' || replayAnswer == 'Y') {
                     wordToGuess = words[random.nextInt(words.length)];
                     game = new GuessGame(wordToGuess, 10);
                 } else {
